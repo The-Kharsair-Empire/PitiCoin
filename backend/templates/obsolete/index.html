@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <div class="container">
+        {% if error %}
+        <h1>Register!</h1>
+        {% else %}
+        <h1>Please login</h1>
+        {% endif %}
+
+        <br>
+        <form action="" method="post">
+            <input type="text" placeholder="Username" name="username" value="{{
+            request.form.username }}">
+            <input type="password" placeholder="Password" name="password" value="{{
+            request.form.password }}">
+            {% if error %}
+            <input type="text" placeholder="Wallet address" name="address" value="{{
+                request.form.address }}">
+            <input class="btn btn-default" type="submit" name="button" value="Register">
+            {% else %}
+            <input class="btn btn-default" type="submit" name="button" value="Login">
+            {% endif %}
+        </form>
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
+        {% endif %}
+
+        {% if wrong_password %}
+        <p class="error"><strong>Error:</strong> {{ wrong_password }}</p>
+        {% endif %}
+
+
+        {% if name %}
+        <p>{{name}}</p>
+        {% endif %}
+        {% if psw %}
+        <p>{{psw}}</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>

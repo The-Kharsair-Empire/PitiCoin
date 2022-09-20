@@ -1,0 +1,190 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <script>
+        var client_name = '{{name}}';
+        var client_wallet = '{{addr}}';
+        // {% for item in item_list %}
+        //             
+        //             {% endfor %}
+
+        // var available_items = '{{item_list}}';
+
+
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('amount').value = '1';
+        });
+    </script>
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <h1> Blockchain shopping page Demo: </h1>
+        <h3>This is the main demo page for the project, you now see a primitive shopping page where user can purchase
+            stuffs. Upon each purchase, the current logged in user will be rewarded with some of our blockchain token
+            coin called JDC,
+            This token coin can be used as cash to purchase other products on this site.
+        </h3>
+
+        <br>
+        {% if name %}
+        <h3>Current logged in user: </h3>
+        <p>{{name}}</p>
+        {% endif %}
+        <br>
+        {% if addr %}
+        <h3>Your Wallet address is:</h3>
+        <p>{{addr}}</p>
+        {% endif %}
+        <br>
+        <!-- {% if psw %}
+        <p>{{psw}}</p>
+        {% endif %} -->
+        <!-- <label for="cars">Buy or Die:</label> -->
+        <div class="row">
+            <div class="col-2">
+                <label class="choose-item-label" for="item_selection">
+                    Choose the item to buy
+                </label>
+            </div>
+            <div class="col">
+                <select id="item_selection" name="item_selection">
+                    <div id='all_items'></div>
+                </select>
+            </div>
+            <div class="col">
+                <button id="btn-add">Add</button>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <label class="amount-to-buy-label" for="amount">
+                    Amount to Buy
+                </label>
+            </div>
+            <div class="col">
+                <input type="number" placeholder="1" name="amount" id="amount">
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-2">
+                <label>Your Cart Preview: </label>
+            </div>
+            <div class="col">
+                <div id="cart-info">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <label>Use Joidea Coin to Pay </label>
+            </div>
+            <div class="col-1">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="use_token" value="y" id="yes-option">
+                    <label class="form-check-label" for="yes-option">
+                        Yes
+                    </label>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="use_token" value="n" id="no-option" checked>
+                    <label class="form-check-label" for="no-option">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <label>*yes* for using JDC, *no* for using cash (but you will get some JDC in
+                    reward) </label>
+            </div>
+        </div>
+
+        <br>
+
+        <button id="btn-buy">Confirm</button>
+
+
+        <!-- <form action="" method="post">
+                <select name="item_selection">
+                    {% for item in item_list %}
+                    <option value="{{ item[0] }}">{{ item[-1] }}</option>
+                    {% endfor %}
+
+                </select>
+                <input class="btn btn-default" type="submit" name="button" value="Buy">
+                <br>
+                <label class="container">Use Joidea Coin to Pay
+                    <input type="checkbox" name="use_token_checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form> -->
+
+
+        <br>
+        {% if error %}
+        <h3>{{error}}</h3>
+        {% endif %}
+
+        <br>
+        {% if addr %}
+        <h3>Your Wallet address is:</h3>
+        <p>{{addr}}</p>
+        {% endif %}
+
+        <br>
+
+        {% if item %}
+        <p>{{item}}</p>
+        {% endif %}
+
+        <br>
+        {% if before %}
+        <p>Your wallet Joidea coin balance before buying{{before}}</p>
+        {% endif %}
+
+        <br>
+        {% if after %}
+        <p>Your wallet Joidea coin balance after buying {{after}}</p>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-6">
+                <button id="btn-coin-info">Know Your Token balance</button>
+                <div id="coin-info">
+                </div>
+            </div>
+
+            <div class="col-6">
+                <button id="btn-block-info">Last Transaction</button>
+                <div id="block-info">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/shopping.js') }}"></script>
+</body>
+
+</html>

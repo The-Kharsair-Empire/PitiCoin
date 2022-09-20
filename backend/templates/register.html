@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+        <br>
+        <br>
+        <br>
+        <div class="row">
+
+            <h1>Demo: </h1>
+            <h3>This is the register page, user/client will sign up here and provide their wallet address, their
+                blockchain wallet address will be stored in a database and retrieved for later use </h3>
+
+        </div>
+        <br>
+        <div class="row">
+            <div id="prompt">
+                <h2>Register</h2>
+            </div>
+        </div>
+        <br>
+        <div id="user-area">
+            <input type="text" placeholder="Username" name="username" id="username">
+            <input type="password" placeholder="Password" name="password" id="password">
+            <!-- <input type="text" placeholder="Wallet Address" name="address" id="address"> -->
+            <button id="btn-register">Register</button>
+        </div>
+
+        <br>
+        <button id="btn-goto-login">Go To Login</button>
+
+        <br>
+        <div id="feedback-msg">
+
+        </div>
+
+
+
+    </div>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+    "contract_name": [
+        "JDC"
+    ],
+    "contract_addr": [
+        "0x25EaDF9eFdB419C1C6E1d98f35A861537Bb79D75"
+    ],
+    "ethereum_network_addr": [
+        "http://192.168.0.2:8545"
+    ],
+    "abi_path": [
+        "/home/kharsair/Documents/blockchain/token/build/contracts/JoideaCoin.json"
+    ]
+}

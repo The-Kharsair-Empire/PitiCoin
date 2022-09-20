@@ -1,0 +1,1 @@
+ganache-cli -h $(hostname -I) -m "equal brisk digital talk faith deputy derive dignity spare maple program orient"
